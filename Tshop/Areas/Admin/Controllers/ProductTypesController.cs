@@ -39,6 +39,7 @@ namespace Tshop.Areas.Customer.Controllers
             {
                 _db.ProductTypes.Add(productTypes);
                 await _db.SaveChangesAsync();
+                TempData["save"] = "Product Type Saved Successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View(productTypes);
@@ -70,6 +71,7 @@ namespace Tshop.Areas.Customer.Controllers
             {
                 _db.Update(productTypes);
                 await _db.SaveChangesAsync();
+                TempData["edit"] = "Product Type Updated";
                 return RedirectToAction(nameof(Index));
             }
             return View(productTypes);
@@ -139,6 +141,7 @@ namespace Tshop.Areas.Customer.Controllers
             {
                 _db.Remove(productType);
                 await _db.SaveChangesAsync();
+                TempData["delete"] = "Product Type Deleted!";
                 return RedirectToAction(nameof(Index));
             }
             return View(productTypes);
