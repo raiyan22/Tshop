@@ -24,13 +24,13 @@ namespace Tshop.Areas.Customer.Controllers
             return View(_db.ProductTypes.ToList());
         }
 
-        // Create get action method
+        // GET Create action method
         public ActionResult Create()
         {
             return View();
         }
 
-        // Create Post action Method
+        // POST Create action Method
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductTypes productTypes)
@@ -38,6 +38,37 @@ namespace Tshop.Areas.Customer.Controllers
             if (ModelState.IsValid)
             {
                 _db.ProductTypes.Add(productTypes);
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(productTypes);
+        }
+
+        /////////////////////////////
+        
+        // GET Edit action method
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var productType = _db.ProductTypes.Find(id);
+            if (productType == null)
+            {
+                return NotFound();
+            }
+            return View(productType);
+        }
+
+        // POST Edit action Method
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(ProductTypes productTypes)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Update(productTypes);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
