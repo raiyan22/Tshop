@@ -26,7 +26,13 @@ namespace Tshop.Models
         [Display(Name ="Product Type")]
         public int ProductTypeId { get; set; }
         [ForeignKey("ProductTypeId")]
-        public ProductTypes productTypes { get; set; }
+        public ProductTypes ProductTypes { get; set; }
+
+        [Required]
+        [Display(Name ="Size")]
+        public int SizeId { get; set; }
+        [ForeignKey("SizeId")]
+        public Size Size { get; set; }
 
 
 
