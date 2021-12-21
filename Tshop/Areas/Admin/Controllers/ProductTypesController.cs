@@ -77,8 +77,33 @@ namespace Tshop.Areas.Customer.Controllers
 
         /////////////////////////////
 
-        // GET Edit action method
+        // GET Details action method
         public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var productType = _db.ProductTypes.Find(id);
+            if (productType == null)
+            {
+                return NotFound();
+            }
+            return View(productType);
+        }
+
+        // POST Details action Method
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Details(ProductTypes productTypes)
+        {
+            return View(nameof(Index));
+        }
+
+        /////////////////////////////
+
+        // GET Delete action method
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -95,10 +120,28 @@ namespace Tshop.Areas.Customer.Controllers
         // POST Edit action Method
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Details(ProductTypes productTypes)
+        public async Task<IActionResult> Delete(int? id,ProductTypes productTypes)
         {
-            return View(nameof(Index));
+            if (id == null)
+            {
+                return NotFound();
+            }
+            if (id != productTypes.ID)
+            {
+                return NotFound();
+            }
+            var productType = _db.ProductTypes.Find(id);
+            if (productType == null)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                _db.Remove(productType);
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(productTypes);
         }
-
     }
 }
