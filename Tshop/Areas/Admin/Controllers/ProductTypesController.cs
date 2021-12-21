@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Tshop.Data;
+using Tshop.Models;
 
 namespace Tshop.Areas.Customer.Controllers
 {
@@ -27,6 +28,20 @@ namespace Tshop.Areas.Customer.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+
+        // Create Post action Method
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ProductTypes productTypes)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.ProductTypes.Add(productTypes);
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(productTypes);
         }
 
     }

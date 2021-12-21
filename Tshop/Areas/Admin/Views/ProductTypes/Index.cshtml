@@ -19,18 +19,21 @@
 
        <br />
        <div>
-           <table class="tabel table-striped border">
+           <table class="table table-striped border ">
                <tr class="table-info">
                    
                    <th> @Html.DisplayNameFor(c=>c.ProductType) </th>
-                   <th>  </th>  
+                       <th></th>
+                       <th></th>
                </tr>
                @foreach( var item in Model )
-            {
-           <tr>
-               <td> @item.ProductType </td>
-               <td> Edit | Details | Delete</td>
-           </tr>
-            }
+               {
+               <tr>
+                   <td> @item.ProductType </td>
+                   <td>
+                       <partial name="_ButtonPartial" model="@item.ID">
+                   </td>
+               </tr>
+               }
            </table>
        </div>

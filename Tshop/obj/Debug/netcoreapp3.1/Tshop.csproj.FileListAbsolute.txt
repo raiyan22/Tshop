@@ -167,3 +167,5 @@ C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Cus
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ProductTypes\Index.cshtml.g.cs
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ProductTypes\Create.cshtml.g.cs
+C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ButtonPartial.cshtml.g.cs
