@@ -75,5 +75,30 @@ namespace Tshop.Areas.Customer.Controllers
             return View(productTypes);
         }
 
+        /////////////////////////////
+
+        // GET Edit action method
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var productType = _db.ProductTypes.Find(id);
+            if (productType == null)
+            {
+                return NotFound();
+            }
+            return View(productType);
+        }
+
+        // POST Edit action Method
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Details(ProductTypes productTypes)
+        {
+            return View(nameof(Index));
+        }
+
     }
 }
