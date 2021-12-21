@@ -178,3 +178,4 @@ C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Adm
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Size\Edit.cshtml.g.cs
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Size\Index.cshtml.g.cs
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ButtonForSizePartial.cshtml.g.cs
+C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Index.cshtml.g.cs

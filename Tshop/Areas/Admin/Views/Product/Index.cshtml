@@ -1,0 +1,66 @@
+﻿@using Tshop.Models;
+@model IEnumerable<Products>
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<br />
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info"> Product List </h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"> &nbsp; Add New Product </a>
+    </div>
+</div>
+
+
+<br />
+<div>
+    <table class="table table-striped border ">
+        <tr class="table-info">
+
+            <th> @Html.DisplayNameFor(c => c.Name) </th>
+            <th> @Html.DisplayNameFor(c => c.Price) </th>
+            <th> @Html.DisplayNameFor(c => c.ProductTypeId) </th>
+            <th> @Html.DisplayNameFor(c => c.ProductColor) </th>
+            <th> @Html.DisplayNameFor(c => c.IsAvailable) </th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @item.Name </td>
+                <td> @item.Price </td>
+                <td> @item.ProductTypes.ProductType </td>
+                <td> @item.ProductColor </td>
+                <td> @item.IsAvailable </td>
+                <td>
+                    <partial name="_ButtonForSizePartial" model="@item.Id">
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+@section scripts {
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var save = '@TempData["save"]'
+            if (save) {
+                alertify.success(save);
+            }
+            var edit = '@TempData["edit"]'
+            if (edit) {
+                alertify.success(edit);
+            }
+            var del = '@TempData["delete"]'
+            if (del) {
+                alertify.error(del);
+            }
+        })
+    </script>
+} 
