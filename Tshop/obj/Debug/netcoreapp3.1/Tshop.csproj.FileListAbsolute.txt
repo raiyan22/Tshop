@@ -181,3 +181,6 @@ C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Views\Sha
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Index.cshtml.g.cs
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Create.cshtml.g.cs
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Edit.cshtml.g.cs
+C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ButtonForProductPartial.cshtml.g.cs
+C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Details.cshtml.g.cs
+C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Delete.cshtml.g.cs

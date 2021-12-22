@@ -25,10 +25,34 @@ namespace Tshop.Areas.Admin.Controllers
             _he = he;
         }
 
+        // GET Index action method
         public IActionResult Index()  // add view
         {
-            return View(_db.Products.Include(item=>item.ProductTypes).Include(i=>i.Size).ToList());
+            return View(_db.Products
+                            .Include(item=>item.ProductTypes)
+                                    .Include(i=>i.Size)
+                                           .ToList());
         }
+
+        //POST Index action method
+        [HttpPost]
+        public IActionResult Index(decimal? lowAmount, decimal? largeAmount)
+        {
+            var products = _db.Products.
+                                Include(c => c.ProductTypes).
+                                    Include(c => c.Size)
+                                        .Where(c => c.Price >= lowAmount && c.Price <= largeAmount)
+                                            .ToList();
+            if (lowAmount == null || largeAmount == null)
+            {
+                products = _db.Products.
+                                Include(c => c.ProductTypes)
+                                       .Include(c => c.Size)
+                                            .ToList();
+            }
+            return View(products);
+        }
+
 
         // GET Create Method
         public IActionResult Create() // add view
@@ -39,29 +63,40 @@ namespace Tshop.Areas.Admin.Controllers
         }
 
 
+        //Post Create method
         [HttpPost]
-        public async Task<IActionResult> Create(Products products, IFormFile image)
+        public async Task<IActionResult> Create(Products product, IFormFile image)
         {
             if (ModelState.IsValid)
             {
-                if (image != null)
+                var searchProduct = _db.Products.FirstOrDefault(c => c.Name == product.Name);
+                if (searchProduct != null)
                 {
-                    var name = Path.Combine(_he.WebRootPath + "/images", Path.GetFileName(image.FileName));
-                    await image.CopyToAsync(new FileStream(name, FileMode.Create));
-                    products.Image = "images/" + image.FileName;
-                }
-                if (image == null)
-                {
-                    products.Image = "images/no_img.PNG";
+                    ViewBag.message = "This Product is already exists";
+                    ViewData["productTypeId"] = new SelectList(_db.ProductTypes.ToList(), "ID", "ProductType"); // producttype.cs class ref
+                    ViewData["SizeId"] = new SelectList(_db.Size.ToList(), "Id", "ProductSize");
+                    return View(product);
                 }
 
-                _db.Products.Add(products);
+                if (image != null)
+                {
+                    var name = Path.Combine(_he.WebRootPath + "/Images", Path.GetFileName(image.FileName));
+                    await image.CopyToAsync(new FileStream(name, FileMode.Create));
+                    product.Image = "Images/" + image.FileName;
+                }
+
+                if (image == null)
+                {
+                    product.Image = "Images/noimage.PNG";
+                }
+                _db.Products.Add(product);
                 await _db.SaveChangesAsync();
-                TempData["save"] = "New Product Saved Successfully";
                 return RedirectToAction(nameof(Index));
             }
-            return View(products);
+
+            return View(product);
         }
+
 
         //GET Edit Action Method
 
@@ -74,8 +109,10 @@ namespace Tshop.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var product = _db.Products.Include(c => c.ProductTypes).Include(c => c.Size)
-                .FirstOrDefault(c => c.Id == id);
+            var product = _db.Products
+                            .Include(c => c.ProductTypes)
+                                .Include(c => c.Size)
+                                    .FirstOrDefault(c => c.Id == id);
             if (product == null)
             {
                 return NotFound();
@@ -83,8 +120,93 @@ namespace Tshop.Areas.Admin.Controllers
             return View(product);
         }
 
+        //POST Edit Action Method
+        [HttpPost]
+        public async Task<IActionResult> Edit(Products products, IFormFile image)
+        {
+            if (ModelState.IsValid)
+            {
+                if (image != null)
+                {
+                    var name = Path.Combine(_he.WebRootPath + "/Images", Path.GetFileName(image.FileName));
+                    await image.CopyToAsync(new FileStream(name, FileMode.Create));
+                    products.Image = "Images/" + image.FileName;
+                }
 
+                if (image == null)
+                {
+                    products.Image = "images/no_img.PNG";
+                }
+                _db.Products.Update(products);
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
 
+            return View(products);
+        }
+
+        //GET Details Action Method
+        public ActionResult Details(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = _db.Products
+                            .Include(c => c.ProductTypes)
+                                .Include(c => c.Size)
+                                    .FirstOrDefault(c => c.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+
+        //GET Delete Action Method
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = _db.Products
+                            .Include(c => c.Size)
+                                .Include(c => c.ProductTypes)
+                                    .Where(c => c.Id == id)
+                                        .FirstOrDefault();
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+
+        //POST Delete Action Method
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirm(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = _db.Products.FirstOrDefault(c => c.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            _db.Products.Remove(product);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
 
     }
