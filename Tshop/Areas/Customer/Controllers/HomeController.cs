@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Tshop.Controllers
 {
     [Area("Customer")]
@@ -25,12 +26,11 @@ namespace Tshop.Controllers
             _db = db;
             _logger = logger;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            return View(_db.Products
-                                .Include(item => item.ProductTypes)
-                                    .Include(i => i.Size)
-                                           .ToList());
+            // 
+            // fix : https://stackoverflow.com/questions/18060667/cannot-connect-to-server-a-network-related-or-instance-specific-error
+            return View(_db.Products.Include(c => c.ProductTypes).Include(c => c.Size).ToList() ); // .ToPagedList(page ?? 1, 9));
         }
 
         public IActionResult Privacy()
@@ -43,5 +43,25 @@ namespace Tshop.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //GET product detail acation method
+
+        public ActionResult Detail(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = _db.Products.Include(x => x.ProductTypes).FirstOrDefault(x => x.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+
+
     }
 }
