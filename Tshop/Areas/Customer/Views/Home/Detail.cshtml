@@ -1,16 +1,19 @@
 ﻿@model Tshop.Models.Products
 @{ ViewData["Title"] = "Details"; }
-@using Tshop
+@using Tshop.Utility
 @using Microsoft.AspNetCore.Http
-@*
 @inject IHttpContextAccessor HttpContextAccessor
 @{ List<Products> products = HttpContextAccessor.HttpContext.Session.Get<List<Products>>("products");
-                Products product = null;
-                if (products != null)
-                {
-                    product = products.FirstOrDefault(c => c.Id == Model.Id);
-                } } *@
+    Products product = null;
+    if (products != null)
+    {
+        product = products.FirstOrDefault(c => c.Id == Model.Id);
+    } }
+
 <br />
+
+@* 3:08:54 set asp-controller to Home *@
+@* 2:56:05 define asp-action as Detail *@
 
 
 <h2 class="text-info">Product Details</h2>
@@ -40,14 +43,14 @@
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             @*<div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Image"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Image" class="form-control" type="file" />
-                </div>
-                <span asp-validation-for="Image" class="text-danger"></span>
-            </div>*@
+                    <div class="col-4">
+                        <label asp-for="Image"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Image" class="form-control" type="file" />
+                    </div>
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>*@
             <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="ProductColor"></label>
@@ -81,33 +84,54 @@
             </div>
 
             @*<div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="IsAvailable"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="IsAvailable" disabled="disabled" class="" type="checkbox" />
-                </div>
-                <span asp-validation-for="IsAvailable" class="text-danger"></span>
-            </div>*@
+                    <div class="col-4">
+                        <label asp-for="IsAvailable"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="IsAvailable" disabled="disabled" class="" type="checkbox" />
+                    </div>
+                    <span asp-validation-for="IsAvailable" class="text-danger"></span>
+                </div>*@
 
+            @* Add to cart button *@
+            <div class="form-group row">
+                <div class="col-4">
+
+                </div>
+                <div class="col-4">
+
+                    @* && Model.IsAvailable optional *@
+                    @if (product != null)
+                    {
+                <button type="submit" class="btn btn-danger form-control" asp-action="Remove" asp-route-id="@Model.Id">Remove</button> }
+            else
+            {
+                <input type="submit" class="btn btn-info form-control" asp-action="Detail" value="Add to Cart" />}
+
+                </div>
+
+            </div>
+
+            @* Back button *@
             <div class="form-group">
                 @*<a type="button" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>*@
                 <a asp-action="Index" class="btn btn-success">Back to List</a>
             </div>
+
         </div>
         <div class="col-1"></div>
         <div class="col-3">
             <img src="~/@Model.Image" width="100%" height="250px" style="border-radius: 5px;border: 1px solid #efefef" />
             @if (Model.IsAvailable)
             {
-        <h4 class="text-success text-center"> In Stock </h4> }
-                    else
-                    {
-        <h4 class="text-danger text-center"> Not in Stock </h4>            }
+<h4 class="text-success text-center"> In Stock </h4> }
+else
+{
+<h4 class="text-danger text-center"> Not in Stock </h4>}
         </div>
 
-        
-        
+
+
 
     </div>
 </form>
