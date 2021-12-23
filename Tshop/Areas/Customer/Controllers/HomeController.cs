@@ -89,7 +89,7 @@ namespace Tshop.Controllers
             products.Add(product);
 
             HttpContext.Session.Set("products", products);
-            //return RedirectToAction(nameof(Index));
+            //return RedirectToAction(nameof(Index));       // SWITCH THIS LINE 
             return View(product);
         }
 
@@ -107,7 +107,9 @@ namespace Tshop.Controllers
                     HttpContext.Session.Set("products", products);
                 }
             }
-            return RedirectToAction(nameof(Index));
+            /*return RedirectToAction(nameof(Index));*/
+            return RedirectToAction(nameof(Cart));
+
         }
 
         //POST Remove action method
@@ -125,7 +127,19 @@ namespace Tshop.Controllers
                     HttpContext.Session.Set("products", products);
                 }
             }
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Cart));
+        }
+
+        // GET product Cart action method
+
+        public IActionResult Cart()
+        {
+            List<Products> products = HttpContext.Session.Get<List<Products>>("products");
+            if (products == null)
+            {
+                products = new List<Products>();
+            }
+            return View(products);
         }
 
 

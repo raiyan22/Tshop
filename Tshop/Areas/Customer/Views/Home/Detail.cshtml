@@ -14,6 +14,7 @@
 
 @* 3:08:54 set asp-controller to Home *@
 @* 2:56:05 define asp-action as Detail *@
+@* 3:29:39 e virtual ken use korlen*@
 
 
 <h2 class="text-info">Product Details</h2>
@@ -104,10 +105,14 @@
                     @if (product != null)
                     {
                 <button type="submit" class="btn btn-danger form-control" asp-action="Remove" asp-route-id="@Model.Id">Remove</button> }
-            else
-            {
-                <input type="submit" class="btn btn-info form-control" asp-action="Detail" value="Add to Cart" />}
+                            else
+                            {
+                                Console.WriteLine(product);
 
+
+                <input type="submit" class="btn btn-info form-control" asp-action="Detail" value="Add to Cart" />
+                        
+                    }
                 </div>
 
             </div>

@@ -185,3 +185,4 @@ C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Views\Sha
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Details.cshtml.g.cs
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Delete.cshtml.g.cs
 C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Detail.cshtml.g.cs
+C:\Users\Raiyan\Desktop\Core\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Cart.cshtml.g.cs
