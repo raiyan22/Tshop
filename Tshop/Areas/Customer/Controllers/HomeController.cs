@@ -11,7 +11,7 @@ using Tshop.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-
+using Tshop.Utility;
 
 namespace Tshop.Controllers
 {
@@ -44,7 +44,7 @@ namespace Tshop.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        //GET product detail acation method
+        //GET product detail action method
 
         public ActionResult Detail(int? id)
         {
@@ -60,6 +60,36 @@ namespace Tshop.Controllers
                 return NotFound();
             }
             return View(product);
+        }
+
+        //POST product detail action method
+        [HttpPost]
+        [ActionName("Detail")]
+        public ActionResult ProductDetail(int? id)
+        {
+            List<Products> products = new List<Products>();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = _db.Products.Include(i => i.ProductTypes).FirstOrDefault(p => p.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            products = HttpContext.Session.Get<List<Products>>("products");
+
+            if (products == null)
+            {
+                products = new List<Products>();
+            }
+
+            products.Add(product);
+
+            HttpContext.Session.Set("products", products);
+            return RedirectToAction(nameof(Index));
         }
 
 

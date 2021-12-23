@@ -39,7 +39,16 @@ namespace Tshop
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-            
+
+            // 2nd step for SessionExtensions ref : https://docs.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-6.0#:~:text=builder.Services.AddSession(options%20%3D%3E%0A%7B%0A%20%20%20%20options.IdleTimeout%20%3D%20TimeSpan.FromSeconds(10)%3B%0A%20%20%20%20options.Cookie.HttpOnly%20%3D%20true%3B%0A%20%20%20%20options.Cookie.IsEssential%20%3D%20true%3B%0A%7D)%3B
+            // 3rd step link "app.UseSession();" down below
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(5);
+                // options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +69,9 @@ namespace Tshop
             app.UseStaticFiles();
 
             app.UseRouting();
+            
+            // 3rd step for SessionExtensions
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();
