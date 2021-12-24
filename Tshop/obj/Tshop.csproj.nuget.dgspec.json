@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Raiyan\\Desktop\\Core\\Tshop\\Tshop\\Tshop.csproj": {}
+    "C:\\Users\\Raiyan\\source\\repos\\Tshop\\Tshop\\Tshop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Raiyan\\Desktop\\Core\\Tshop\\Tshop\\Tshop.csproj": {
+    "C:\\Users\\Raiyan\\source\\repos\\Tshop\\Tshop\\Tshop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Raiyan\\Desktop\\Core\\Tshop\\Tshop\\Tshop.csproj",
+        "projectUniqueName": "C:\\Users\\Raiyan\\source\\repos\\Tshop\\Tshop\\Tshop.csproj",
         "projectName": "Tshop",
-        "projectPath": "C:\\Users\\Raiyan\\Desktop\\Core\\Tshop\\Tshop\\Tshop.csproj",
+        "projectPath": "C:\\Users\\Raiyan\\source\\repos\\Tshop\\Tshop\\Tshop.csproj",
         "packagesPath": "C:\\Users\\Raiyan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Raiyan\\Desktop\\Core\\Tshop\\Tshop\\obj\\",
+        "outputPath": "C:\\Users\\Raiyan\\source\\repos\\Tshop\\Tshop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Raiyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
