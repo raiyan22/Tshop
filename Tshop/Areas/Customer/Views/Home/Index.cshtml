@@ -1,5 +1,8 @@
 ﻿@using Tshop.Models;
-@model List<Products>
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Mvc.Common
+@model X.PagedList.IPagedList<Products>
+
 
 @{ ViewData["Title"] = "Home Page"; }
 <br />
@@ -26,4 +29,6 @@
             </div>
         </div>}
 </div>
-<div> @*  @Html.PagedListPager(Model, c => Href("~/Customer/Home/Index?page=" + c), PagedListRenderOptionsBase.PageNumbersOnly) *@ </div> 
+<div>
+    @Html.PagedListPager(Model, c => Href("~/Customer/Home/Index?page=" + c), PagedListRenderOptionsBase.PageNumbersOnly )
+</div>

@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Tshop.Utility;
+using X.PagedList;
 
 namespace Tshop.Controllers
 {
@@ -28,9 +29,9 @@ namespace Tshop.Controllers
         }
         public IActionResult Index(int? page)
         {
-            // 
+            // err : db not connecting 
             // fix : https://stackoverflow.com/questions/18060667/cannot-connect-to-server-a-network-related-or-instance-specific-error
-            return View(_db.Products.Include(c => c.ProductTypes).Include(c => c.Size).ToList() ); // .ToPagedList(page ?? 1, 9));
+            return View(_db.Products.Include(c => c.ProductTypes).Include(c => c.Size).ToList().ToPagedList(page ?? 1, 8));
         }
 
         public IActionResult Privacy()

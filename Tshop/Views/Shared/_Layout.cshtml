@@ -19,10 +19,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Tshop</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    
+
     <!-- icons -->
     @*<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">*@
-    
+
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" type="text/css" />
     <!-- -->
@@ -30,6 +30,9 @@
     <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 
     <link href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" rel="stylesheet" />
+
+    @* Datepicker *@
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 
     <link rel="stylesheet" href="~/css/site.css" />
 
@@ -100,6 +103,9 @@
 
     @* icons  https://friconix.com/  *@
     <script defer src="https://friconix.com/cdn/friconix.js"></script>
+
+    @* datepicker*@ @*https://jqueryui.com/datepicker/#date-formats*@
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

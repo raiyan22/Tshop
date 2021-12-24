@@ -118,9 +118,11 @@
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>$(document).ready(function() {
             $("#OrderDate").datepicker({
-                showAnim: "slide",
+                showAnim: "fold",
                 changeMonth: true,
-                changeYear:true
+                changeYear: true,
+                minDate: 0,
+                maxDate: "+2M +10D"
             });
         });</script>
 

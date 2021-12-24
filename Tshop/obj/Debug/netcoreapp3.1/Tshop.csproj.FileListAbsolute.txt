@@ -374,3 +374,10 @@ C:\Users\Raiyan\Source\Repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Tshop.dll
 C:\Users\Raiyan\Source\Repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Tshop.pdb
 C:\Users\Raiyan\Source\Repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Tshop.genruntimeconfig.cache
 C:\Users\Raiyan\Source\Repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Order\Checkout.cshtml.g.cs
+C:\Users\Raiyan\source\repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Tshop.csprojAssemblyReference.cache
+C:\Users\Raiyan\source\repos\Tshop\Tshop\bin\Debug\netcoreapp3.1\X.PagedList.dll
+C:\Users\Raiyan\source\repos\Tshop\Tshop\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+C:\Users\Raiyan\source\repos\Tshop\Tshop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Raiyan\source\repos\Tshop\Tshop\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Raiyan\source\repos\Tshop\Tshop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Raiyan\source\repos\Tshop\Tshop\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
