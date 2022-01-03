@@ -35,8 +35,12 @@ namespace Tshop
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            // err : https://stackoverflow.com/questions/52089864/unable-to-resolve-service-for-type-iemailsender-while-attempting-to-activate-reg
+            // fixed registration page using .AddDefaultUI()
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false )
+                .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultUI();  
+
             services.AddControllersWithViews();
             services.AddRazorPages();
 

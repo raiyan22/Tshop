@@ -1,13 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Tshop",
-    "\\Tshop\\Areas",
-    "\\Tshop\\Areas\\Customer",
-    "\\Tshop\\Areas\\Customer\\Views",
-    "\\Tshop\\Areas\\Customer\\Views\\Home",
-    "\\Tshop\\Areas\\Customer\\Views\\Order"
+    "\\Tshop"
   ],
-  "SelectedNode": "\\Tshop\\Tshop.csproj.user",
+  "SelectedNode": "\\Tshop.sln",
   "PreviewInSolutionExplorer": false
 }

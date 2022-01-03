@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,11 @@ using System.Threading.Tasks;
 using Tshop.Data;
 using Tshop.Models;
 
+
 namespace Tshop.Areas.Customer.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class ProductTypesController : Controller
     {
         private ApplicationDbContext _db;
@@ -18,12 +21,14 @@ namespace Tshop.Areas.Customer.Controllers
             _db = db;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             //var data = _db.ProductTypes.ToList();
             return View(_db.ProductTypes.ToList());
         }
 
+        
         // GET Create action method
         public ActionResult Create()
         {
@@ -48,6 +53,7 @@ namespace Tshop.Areas.Customer.Controllers
         /////////////////////////////
         
         // GET Edit action method
+        
         public ActionResult Edit(int? id)
         {
             if (id == null)

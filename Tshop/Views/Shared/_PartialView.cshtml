@@ -1,0 +1,16 @@
+﻿@model string
+@*   now   *@
+<td style="width: 150px">
+    <div class="btn-group">
+        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model">
+            <i class="fi-cwsuxl-pen"></i>
+        </a>
+        <a asp-action="Details" class="btn btn-success" asp-route-id="@Model">
+            <i class="fi-swluxl-info-solid"></i>
+        </a>
+        <a asp-action="Lockout" class="btn btn-warning" asp-route-id="@Model">
+            <i class="fi-xnsuxl-lock-solid"></i>
+        </a>
+
+    </div>
+</td>  

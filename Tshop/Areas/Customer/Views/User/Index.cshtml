@@ -1,0 +1,81 @@
+﻿@using Tshop.Models 
+@model IEnumerable<ApplicationUser>
+@{ ViewData["Title"] = "Index"; }
+
+<br />
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">User List</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fi-cwsuxl-plus-solid"></i>&nbsp; New User</a>
+    </div>
+</div>
+<br />
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                Name
+            </th>
+            <th>
+                UserName
+            </th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.FirstName @item.LastName</td>
+        <td>@item.UserName</td>
+        @if (item.LockoutEnd > DateTime.Now && item.LockoutEnd != null)
+        {
+    <td><i class="fi-xnsuxl-user-lock-solid"></i> &nbsp; Blocked </td>
+                        <td></td>
+                        <td>
+                            <div class="btn-group">
+                                <a asp-action="Active" class="btn btn-primary" asp-route-id="@item.Id">
+                                    <i class="fi-cwsuxl-pen"></i>
+                                </a>
+                                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">
+                                    <i class="fi-snsuxl-trash-bin"></i>
+                                </a>
+                            </div>
+
+                        </td>
+                        }
+                        else
+                        {
+                        <td> <i class="fi-cwsuxl-check text-success"></i> &nbsp; Active</td>
+
+                        <td style="width: 150px">
+                            <partial name="_PartialView" model="@item.Id" />
+                        </td>
+                        }
+
+                    </tr>}
+    </table>
+</div>
+
+@section scripts{
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var save = '@TempData["save"]'
+            if(save!='') {
+                alertify.success(save);
+            }
+            var edit = '@TempData["edit"]'
+            if(edit!='') {
+                alertify.success(edit);
+            }
+            var del = '@TempData["delete"]'
+            if (del!='') {
+                alertify.error(del);
+            }
+        })
+    </script>
+}

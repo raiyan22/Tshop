@@ -1,9 +1,25 @@
 ﻿@model int
 
-
+@*   now   *@
 <td style="width: 150px">
     <div class="btn-group">
-        <a asp-action="Edit" asp-controller="ProductTypes" class="btn btn-primary" asp-route-id="@Model"> 
+        <a asp-action="Edit"  class="btn btn-primary" asp-route-id="@Model"> 
+            <i class="fi-cwsuxl-pen"></i>&nbsp; Edit
+        </a>
+        <a asp-action="Details" class="btn btn-success" asp-route-id="@Model">
+            <i class="fi-swluxl-info-solid"></i> &nbsp; Info
+        </a>
+        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@Model">
+            <i class="fi-snsuxl-trash-bin"></i> &nbsp; Delete
+        </a>
+
+    </div>
+</td>  
+
+@*previously*@
+@*<td style="width: 150px">
+    <div class="btn-group">
+        <a asp-action="Edit" asp-controller="ProductTypes" class="btn btn-primary" asp-route-id="@Model">
             Edit
         </a>
         <a asp-action="Details" asp-controller="ProductTypes" class="btn btn-success" asp-route-id="@Model">
@@ -14,4 +30,4 @@
         </a>
 
     </div>
-</td>  
+</td>*@
