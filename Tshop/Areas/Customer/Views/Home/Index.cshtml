@@ -9,6 +9,14 @@
 }
 
 @{ ViewData["Title"] = "Home Page"; }
+@* ///////////////////
+<style>
+    #parallaxx { 
+        background-image: url("~/wwwroot/images/black_hoodie.jpg"); 
+        height: 500px; 
+    }
+</style>*@
+
 <br />
 <br />
 
@@ -22,9 +30,7 @@
 }
 else
 {
-
-    @* Carousel
-    *@
+    @* Carousel *@
     <section>
         <div class="container-fluid">
             @* bootstrap *@
@@ -56,55 +62,67 @@ else
             </div>
         </div>
     </section>
-}
 
-<div class="my-3 py-3"></div>
 
-@*brand*@
-<section>
-    <div class="container">
-        <div class="h2 text-center mb-4 pb-4"> From Brands you Love</div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <img src="~/images/no_img.png" class="card-img-top" />
-                    <div class="card-body">
-                        <h5 class="card-title"> Nike </h5>
+    <div class="my-3 py-3"></div>
+
+    @*brand*@
+    <section>
+        <div class="container">
+            <div class="h2 text-center mb-4 pb-4"> From Brands you Love</div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <img src="~/images/no_img.png" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title"> Nike </h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <img src="~/images/no_img.png" class="card-img-top" />
-                    <div class="card-body">
-                        <h5 class="card-title"> Adidas </h5>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <img src="~/images/no_img.png" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title"> Adidas </h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <img src="~/images/no_img.png" class="card-img-top" />
-                    <div class="card-body">
-                        <h5 class="card-title"> Puma </h5>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <img src="~/images/no_img.png" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title"> Puma </h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+    <div class="my-3 py-3"></div>
+
+    @*Featured product*@
+    //////////////////
+<!--<section>
+    <div class="container" id="parallaxx">-->
+        @**@
+        <!--<div class="row h-100">
+
+        </div>
     </div>
 </section>
+    <div class="my-3 py-3"></div>-->
 
-<div class="my-3 py-3"></div>
+    @*Featured product*@
+
+}
+
+@* All Products *@
 
 <section>
     <div class="container">
         <div class="h2 text-center mb-4 pb-4"> Browse Our Products </div>
     </div>
 </section>
-
-@*brand*@
-
-@*Featured product*@
-@*Featured product*@
 
 
 <section>
@@ -131,15 +149,16 @@ else
                     </div>
                 </div>}
         </div>
-        <div>
-            @Html.PagedListPager(Model, c => Href("~/Customer/Home/Index?page=" + c), PagedListRenderOptionsBase.PageNumbersOnly)
+        <div class="pagination">
+            @*https://www.c-sharpcorner.com/article/paging-in-asp-net-mvc-4-using-pagelist/*@
+
+            Jump between Pages 👉 @Html.PagedListPager(Model, c => Href("~/Customer/Home/Index?page=" + c), PagedListRenderOptionsBase.PageNumbersOnly)
         </div>
     </div>
 </section>
 
 @section Scripts{
     @*@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
-
     <script>
         $('.carousel').carousel({
             interval: 3500
