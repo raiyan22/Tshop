@@ -58,7 +58,7 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
 
-                        @if (userRole == "Admin")
+                        @if (userRole == "Admin" || userRole == "Super User")
                         {
 
                             <li class="nav-item">
@@ -73,7 +73,7 @@
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="Product" asp-action="Index">Products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Role" asp-action="Assign">Roles</a>
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Role" asp-action="Index">Roles</a>
                             </li>
 
                         }
@@ -87,12 +87,14 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Cart">
-                                    <i class="fi-xwsuhl-shopping-cart-solid"></i> (@count)
-                                </a>
-                            </li>
+
                         }
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Cart">
+                                <i class="fi-xwsuhl-shopping-cart-solid"></i> (@count)
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

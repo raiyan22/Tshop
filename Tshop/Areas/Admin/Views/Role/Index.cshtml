@@ -7,7 +7,13 @@
         <h2 class="text-info">Roles</h2>
     </div>
     <div class="col-6 text-right">
+        @* ///////////////// *@
+        <a class="btn btn-success" asp-action="AssignUserRole"><i class="fi-xnsuxl-eye-solid"></i>&nbsp; View Assigned Roles</a>
+        <a class="btn btn-warning" asp-action="Assign"><i class="fi-xnsuxl-user-plus-solid"></i>&nbsp; Assign Roles</a>
+        @* ///////////////// *@
         <a asp-action="Create" class="btn btn-info"><i class="fi-cwsuxl-plus-solid"></i>&nbsp; New Role</a>
+
+        @*<a asp-action="Assign" class="btn btn-warning"><i class="fi-cwsuxl-plus-solid"></i>&nbsp; Assign Role</a>*@
     </div>
 </div>
 <br />
@@ -26,6 +32,7 @@
     <td>@item.Name</td>
     <td style="width: 150px">
         <div class="btn-group">
+            
             <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">
                 <i class="fi-cwsuxl-pen"></i>
             </a>
@@ -39,9 +46,9 @@
     </table>
 </div>
 
-@section scripts{
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
-    <script type="text/javascript">
+    @section scripts{
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+        <script type="text/javascript">
         $(function(){
             var save = '@TempData["save"]'
             if(save!='') {
@@ -56,5 +63,5 @@
                 alertify.error(del);
             }
         })
-    </script>
-}
+        </script>
+    }

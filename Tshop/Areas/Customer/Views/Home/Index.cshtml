@@ -12,11 +12,11 @@
 <br />
 <br />
 
-@if (userRole == "Admin")
+@if (userRole == "Admin" || userRole == "Super User")
 {
     <section>
         <div class="container">
-            <div class="h2 text-center text-info mb-3 pb-3"> You're an Admin Now </div>
+            <div class="h2 text-center text-info mb-2 pb-2"> You're an Admin Now </div>
         </div>
     </section>
 }

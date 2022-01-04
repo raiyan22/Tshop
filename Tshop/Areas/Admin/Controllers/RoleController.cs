@@ -30,7 +30,6 @@ namespace TShop.Areas.Admin.Controllers
             return View();
         }
 
-
         public async Task<IActionResult> Create()
         {
             return View();
@@ -57,7 +56,6 @@ namespace TShop.Areas.Admin.Controllers
             return View();
         }
 
-        
         public async Task<IActionResult> Edit(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
