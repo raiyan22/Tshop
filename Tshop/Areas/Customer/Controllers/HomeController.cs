@@ -37,8 +37,8 @@ namespace Tshop.Controllers
         public IActionResult Privacy()
         {
             // Cookie here
-            string key = "MyCookie";
-            string value = "Cookie_Value";
+            string key = "userVisitedPrivacyPage";
+            string value = "Yes";
             CookieOptions cookieOptions = new CookieOptions();
             cookieOptions.Expires = DateTime.Now.AddMinutes(5);
             Response.Cookies.Append(key, value, cookieOptions);
@@ -48,7 +48,7 @@ namespace Tshop.Controllers
         public IActionResult RemovedCookie()
         {
             // Cookie Removed
-            string key = "MyCookie";
+            string key = "userVisitedPrivacyPage";
             string value = "";
             CookieOptions cookieOptions = new CookieOptions();
             cookieOptions.Expires = DateTime.Now.AddMinutes(-1);
