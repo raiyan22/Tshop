@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-Tshop-789C4813-A147-4BF2-B850-A153FDEE04B6</UserSecretsId>
+    <ApplicationIcon>faviconn.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

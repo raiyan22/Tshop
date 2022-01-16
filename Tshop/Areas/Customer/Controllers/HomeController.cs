@@ -45,6 +45,10 @@ namespace Tshop.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+
+
+        
+
         //GET product detail action method
 
         public ActionResult Detail(int? id)
