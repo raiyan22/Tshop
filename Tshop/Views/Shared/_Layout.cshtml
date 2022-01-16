@@ -49,7 +49,7 @@
 <body>
     <header>
         <!-- nav -->
-        <nav class="navbar py-4 navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
+        <nav class="navbar py-4 navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Tshop </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -64,18 +64,18 @@
                         {
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="ProductTypes" asp-action="Index">Product Type</a>
+                                <a class="nav-link text-light" asp-area="Admin" asp-controller="ProductTypes" asp-action="Index">Product Type</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Size" asp-action="Index">Size</a>
+                                <a class="nav-link text-light" asp-area="Admin" asp-controller="Size" asp-action="Index">Size</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Product" asp-action="Index">Products</a>
+                                <a class="nav-link text-light" asp-area="Admin" asp-controller="Product" asp-action="Index">Products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Role" asp-action="Index">Roles</a>
+                                <a class="nav-link text-light" asp-area="Admin" asp-controller="Role" asp-action="Index">Roles</a>
                             </li>
 
                         }
@@ -83,17 +83,17 @@
                         {
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                             </li>
 
                         }
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Cart">
+                            <a class="nav-link text-light" asp-area="Customer" asp-controller="Home" asp-action="Cart">
                                 <i class="fi-xwsuhl-shopping-cart-solid"></i> (@count)
                             </a>
                         </li>
@@ -111,11 +111,23 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 | Tshop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <div class="container mx-3 px-3">
+
+
+    </div>
+
+ <footer class="footer text-muted mt-3 pt-3 bg-dark">
+
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2022 Copyright || Developed by <a href="https://www.github.com/raiyan22">Raiyan</a> || All Rights Reserved
+        
+        @*<div class="container">*@
+        @*&copy; 2022*@|| Tshop - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+        @*</div>*@
+    </div>
+    <!-- Copyright -->
+</footer>
+    <!-- Footer -->
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

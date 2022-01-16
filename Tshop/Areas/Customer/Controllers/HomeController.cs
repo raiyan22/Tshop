@@ -36,6 +36,23 @@ namespace Tshop.Controllers
 
         public IActionResult Privacy()
         {
+            // Cookie here
+            string key = "MyCookie";
+            string value = "Cookie_Value";
+            CookieOptions cookieOptions = new CookieOptions();
+            cookieOptions.Expires = DateTime.Now.AddMinutes(5);
+            Response.Cookies.Append(key, value, cookieOptions);
+            return View();
+        }
+
+        public IActionResult RemovedCookie()
+        {
+            // Cookie Removed
+            string key = "MyCookie";
+            string value = "";
+            CookieOptions cookieOptions = new CookieOptions();
+            cookieOptions.Expires = DateTime.Now.AddMinutes(-1);
+            Response.Cookies.Append(key, value, cookieOptions);
             return View();
         }
 
@@ -45,9 +62,6 @@ namespace Tshop.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
-
-        
 
         //GET product detail action method
 

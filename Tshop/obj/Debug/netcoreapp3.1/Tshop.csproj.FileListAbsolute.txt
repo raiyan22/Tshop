@@ -432,3 +432,5 @@ C:\Users\Raiyan\source\repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Tshop.csproj.Co
 C:\Users\Raiyan\source\repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Tshop.dll
 C:\Users\Raiyan\source\repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Tshop.pdb
 C:\Users\Raiyan\source\repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Tshop.genruntimeconfig.cache
+C:\Users\Raiyan\source\repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Tshop.csprojAssemblyReference.cache
+C:\Users\Raiyan\source\repos\Tshop\Tshop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\RemovedCookie.cshtml.g.cs
