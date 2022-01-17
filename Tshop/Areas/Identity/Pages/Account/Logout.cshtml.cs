@@ -30,7 +30,7 @@ namespace Tshop.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             await _signInManager.SignOutAsync();
-            //
+            // Session is implemented here
             HttpContext.Session.SetString("roleName","");
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)

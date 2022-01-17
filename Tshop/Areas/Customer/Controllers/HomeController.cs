@@ -34,6 +34,12 @@ namespace Tshop.Controllers
             return View(_db.Products.Include(c => c.ProductTypes).Include(c => c.Size).ToList().ToPagedList(page ?? 1, 8));
         }
 
+        public IActionResult About()
+        {
+           
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             // Cookie here
